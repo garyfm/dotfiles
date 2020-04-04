@@ -6,6 +6,7 @@ filetype plugin indent on
 " Tabs to be 4 spaces
 set tabstop=4
 set shiftwidth=4
+
 "Start NerdTree when vim is open
 autocmd vimenter * NERDTree
 
