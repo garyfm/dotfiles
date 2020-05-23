@@ -125,3 +125,8 @@ alias ...='cd ../..'
 alias python='python3'
 
 source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
+
+export VISUAL=vim
+export EDITOR="$VISUAL"
+export WRKSP="/home/mojo/workspace"
+export PY_WR="/home/mojo/workspace/python_workspace"
