@@ -116,17 +116,21 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# added by Anaconda3 4.2.0 installer
+export PATH="/home/garym/anaconda3/bin:$PATH"
+
 ############################
 ####	Added By GM     #### 
 ############################
 alias tmux='tmux -2'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias python='python3'
 
 source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 
-export VISUAL=vim
-export EDITOR="$VISUAL"
-export WRKSP="/home/mojo/workspace"
-export PY_WR="/home/mojo/workspace/python_workspace"
+export TI="/opt/ti"
+export TI_CGT="/opt/ti/ti-cgt-c2000_18.12.8.LTS"
+export FLASH="/opt/ti/uniflash_6.4.0/dslite.sh"
+export EIRA_WRKSP="/home/garym/Eiratech/workspace"
+export PSU="/home/garym/Eiratech/workspace/psu"
+
