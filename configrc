@@ -1,21 +1,17 @@
 # Variable
-export WIN_HOME='/mnt/c/Users/GaryMullen/'
-export ARM_GCC='/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin'
-export DISPLAY=:0 # Fix wsl gui applications
+
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # Path
 
-export PATH=$PATH:$ARM_GCC
-export PATH=$PATH:$HOME/.local/bin
-
 # Source
-source /opt/ros/humble/setup.bash
 source /usr/share/bash-completion/completions/git
 
 # Alias
+alias nvim='~/repos/nvim-linux64/bin/nvim'
 alias nv='nvim'
-alias stmcube="/opt/st/stm32cubeide_1.14.0/stm32cubeide_wayland"
-alias idf-setup=". ~/repos/esp-idf/export.sh"
+
+alias tmux='tmux -f ~/.config/tmux/tmux.conf'
 
 alias g="git"
 __git_complete g _git_main

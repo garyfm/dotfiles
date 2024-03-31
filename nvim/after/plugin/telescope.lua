@@ -7,4 +7,5 @@ end)
 
 vim.keymap.set('n', '<leader>fS', function()
         builtin.grep_string({ search = vim.fn.expand('<cword>') })
+
 end)
