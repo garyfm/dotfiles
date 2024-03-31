@@ -1,0 +1,61 @@
+# Variable
+export WIN_HOME='/mnt/c/Users/GaryMullen/'
+export ARM_GCC='/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin'
+export DISPLAY=:0 # Fix wsl gui applications
+
+# Path
+
+export PATH=$PATH:$ARM_GCC
+export PATH=$PATH:$HOME/.local/bin
+
+# Source
+source /opt/ros/humble/setup.bash
+source /usr/share/bash-completion/completions/git
+
+# Alias
+alias nv='nvim'
+alias stmcube="/opt/st/stm32cubeide_1.14.0/stm32cubeide_wayland"
+alias idf-setup=". ~/repos/esp-idf/export.sh"
+
+alias g="git"
+__git_complete g _git_main
+
+alias gs="git status"
+__git_complete gs _git_status
+
+alias ga="git add"
+__git_complete ga _git_add
+
+alias gl="git log"
+__git_complete gl _git_log
+
+alias gb="git branch"
+__git_complete gb _git_branch
+
+alias gd="git diff"
+__git_complete gd _git_diff
+
+alias gsw="git switch"
+__git_complete gsw _git_switch
+
+alias grs="git restore"
+__git_complete grs _git_restore
+
+alias gch="git checkout"
+__git_complete gch _git_checkout
+
+alias gps="git push"
+__git_complete gps _git_push
+
+alias gpl="git pull"
+__git_complete gpl _git_pull
+
+alias grb="git rebase"
+__git_complete grb _git_rebase
+
+alias gcm="git commit"
+__git_complete gcm _git_commit
+
+# Config
+
+set -o vi
