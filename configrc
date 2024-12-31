@@ -1,6 +1,7 @@
 # Variable
 
 export XDG_CONFIG_HOME="$HOME/.config"
+export PATH="$PATH:/opt/nvim-linux64/bin"
 
 # Path
 
@@ -8,8 +9,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 source /usr/share/bash-completion/completions/git
 
 # Alias
-alias nvim='~/repos/nvim-linux64/bin/nvim'
-alias nv='nvim'
+alias nv='/opt/nvim-linux64/bin/nvim'
 
 alias tmux='tmux -f ~/.config/tmux/tmux.conf'
 
