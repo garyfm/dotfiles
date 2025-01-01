@@ -40,6 +40,7 @@ return require('packer').startup(function(use)
     ---------------------------------------
 
     use { "ellisonleao/gruvbox.nvim" }
+    use { "maxmx03/fluoromachine.nvim" }
 
     use {
             'nvim-telescope/telescope.nvim', tag = '0.1.6',

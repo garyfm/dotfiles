@@ -8,7 +8,7 @@ require('aerial').setup({
 
   -- Set default symbol icons to use patched font icons (see https://www.nerdfonts.com/)
   -- "auto" will set it to true if nvim-web-devicons or lspkind-nvim is installed.
-  nerd_font = false
+  nerd_font = auto
 })
 -- You probably also want to set a keymap to toggle aerial
 vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')

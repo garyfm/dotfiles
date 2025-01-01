@@ -14,7 +14,6 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
-
 vim.opt.number = true           -- show line numbers
 vim.opt.relativenumber = true   -- show relative line numbers
 vim.opt.cursorline = true       -- underline the line which the cursor is on
