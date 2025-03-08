@@ -56,19 +56,32 @@ return require("packer").startup(function(use)
 			"nvim-tree/nvim-web-devicons", -- optional
 		},
 	})
-
+	use({
+		"williamboman/mason.nvim",
+		run = function()
+			pcall(vim.cmd, "MasonUpdate")
+		end,
+		opt = {
+			ensure_installed = {
+				"clangd",
+				"clang-format",
+				" cmake-language-server cmake",
+				" cmakelang",
+				" codespell",
+				" cpplint",
+				" cpptools",
+				" lua-language-server lua_ls",
+				" luacheck",
+				" stylua",
+			},
+		},
+	})
 	use({
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v2.x",
 		requires = {
 			-- LSP Support
 			{ "neovim/nvim-lspconfig" }, -- Required
-			{ -- Optional
-				"williamboman/mason.nvim",
-				run = function()
-					pcall(vim.cmd, "MasonUpdate")
-				end,
-			},
 			{ "williamboman/mason-lspconfig.nvim" }, -- Optional
 
 			-- Autocompletion
