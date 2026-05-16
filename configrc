@@ -56,3 +56,9 @@ __git_complete gcm _git_commit
 # Config
 
 set -o vi
+
+# Save history mainly for tmux sessions
+shopt -s histappend
+HISTSIZE=100000
+HISTFILESIZE=200000
+HISTCONTROL=ignoredups:erasedups
