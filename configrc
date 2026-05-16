@@ -1,7 +1,7 @@
 # Variable
 
 export XDG_CONFIG_HOME="$HOME/.config"
-export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$PATH:/home/garyfm/tools/nvim/bin"
 export COLORTERM=truecolor
 
 # Path
@@ -10,7 +10,7 @@ export COLORTERM=truecolor
 source /usr/share/bash-completion/completions/git
 
 # Alias
-alias nv='/opt/nvim-linux64/bin/nvim'
+alias nv="/home/garyfm/tools/nvim/bin/nvim"
 
 alias tmux='tmux -f ~/.config/tmux/tmux.conf'
 
