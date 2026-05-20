@@ -1,5 +1,5 @@
 require("lualine").setup({
 	options = {
-		theme = "fluoromachine",
+		theme = "gruvbox_dark",
 	},
 })

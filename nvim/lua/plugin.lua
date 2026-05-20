@@ -13,7 +13,9 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     { "ellisonleao/gruvbox.nvim" },
     { "maxmx03/fluoromachine.nvim" },
-    --{ dir = "/home/garyfm/workspace/dotfiles/nvim/my-theme/my-theme.nvim" },
+    { 
+        dir = "/home/garyfm/workspace/dotfiles/nvim/dath", 
+    },
 
     {
         "nvim-treesitter/nvim-treesitter",
