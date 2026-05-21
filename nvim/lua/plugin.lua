@@ -13,8 +13,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     { "ellisonleao/gruvbox.nvim" },
     { "maxmx03/fluoromachine.nvim" },
-    { 
-        dir = "/home/garyfm/workspace/dotfiles/nvim/dath", 
+    {
+        dir = "/home/garyfm/workspace/dotfiles/nvim/dath",
     },
 
     { "neovim/nvim-lspconfig" },
@@ -96,7 +96,4 @@ require("lazy").setup({
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
-
-    -- Diagnostics
-    { "folke/trouble.nvim" },
 })
