@@ -17,6 +17,8 @@ require("lazy").setup({
         dir = "/home/garyfm/workspace/dotfiles/nvim/dath", 
     },
 
+    { "neovim/nvim-lspconfig" },
+
     {
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
