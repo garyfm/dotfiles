@@ -52,9 +52,6 @@ require("lazy").setup({
         dependencies = "nvim-tree/nvim-web-devicons",
     },
 
-    -- Formatter
-    { "mhartington/formatter.nvim" },
-
     -- Code outline
     { 
         "stevearc/aerial.nvim" 
