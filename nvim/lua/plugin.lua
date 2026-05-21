@@ -36,31 +36,6 @@ require("lazy").setup({
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
 
-    {
-        "mason-org/mason.nvim",
-        build = ":MasonUpdate",
-        opts = {
-            ensure_installed = {
-                "clangd",
-                "clang-format",
-                "cmake-language-server",
-                "cmakelang",
-                "codespell",
-                "cpplint",
-                "cpptools",
-                "lua-language-server",
-                "luacheck",
-                "stylua",
-            },
-        },
-    },
-
-    -- mason-lspconfig bridges Mason <-> vim.lsp.config
-    {
-        "mason-org/mason-lspconfig.nvim",
-        dependencies = { "mason-org/mason.nvim" },
-    },
-
     -- Completion
     {
         "hrsh7th/nvim-cmp",
