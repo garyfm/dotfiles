@@ -1,9 +1,4 @@
 --  ===== lsp =====
--- Attach capabilities to all servers (for nvim-cmp)
-vim.lsp.config("*", {
-    capabilities = require("cmp_nvim_lsp").default_capabilities(),
-})
-
 vim.lsp.config("lua_ls", {
     settings = {
         Lua = {
@@ -24,9 +19,35 @@ vim.lsp.config('clangd', {
   },
   filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
   root_markers = { 'compile_commands.json', 'compile_flags.txt', '.git', 'meson.build', },
+  on_attach = function(client, bufnr)
+      vim.lsp.completion.enable(true, client.id, bufnr, {
+		convert = function(item)
+          return { abbr = item.label:gsub("%b()", "") }
+		end,
+      })
+      vim.keymap.set("i", "<C-space>", vim.lsp.completion.get, { desc = "trigger autocompletion" })
+  end
 })
 
-vim.lsp.enable('clangd')
+vim.lsp.enable("clangd")
+
+-- auto-complete
+vim.api.nvim_create_autocmd("InsertCharPre", {
+  pattern = { "*.c", "*.cpp", "*.h" },
+  callback = function()
+    local c = vim.v.char
+
+    -- trigger completion after common C++ operators
+    if c == "." or c == ":" or c == ">" then
+      vim.schedule(function()
+        vim.lsp.completion.get()
+      end)
+    end
+  end,
+})
+
+vim.opt.completeopt = { "menuone", "noselect", "popup" }
+vim.opt.pumheight = 7
 
 local map = vim.keymap.set
 
@@ -53,27 +74,13 @@ map("n", "<leader>q", vim.diagnostic.setloclist, {
 
 -- ==== treesitter ====
 
-require('nvim-treesitter').install { "c", "cpp", "lua", "rust" }
+
+require("nvim-treesitter").install { "c", "cpp", "lua", "rust", }
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { '<filetype>' },
   callback = function() vim.treesitter.start() end,
 })
-
---  ==== auto-complete ====
-
-vim.opt.completeopt = { "menuone", "noselect", "popup" }
-
---require("nvim-cmp").setup({
---  mapping = cmp.mapping.preset.insert({
---    ["<CR>"] = cmp.mapping.confirm({ select = true }),
---    ["<Tab>"] = cmp.mapping.select_next_item(),
---    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
---  }),
---  sources = {
---    { name = "nvim_lsp" },
---  },
---})
 
 -- ==== telescope =====
 
@@ -90,13 +97,16 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find buffers" })
 vim.keymap.set("n", "<leader>lr", builtin.lsp_references,        { desc = "LSP references" })
 vim.keymap.set("n", "<leader>ld", builtin.lsp_definitions,       { desc = "LSP definitions" })
 
+vim.keymap.set("n", "<leader>bb", "<cmd>Telescope buffers<CR>")
+
 -- ==== UI ====
 require("lualine").setup({
 	options = {
-		theme = "gruvbox_dark",
+		--theme = "gruvbox_dark",
+		theme = "fluoromachinefol",
 	},
 })
-require("bufferline").setup({})
+
 require("nvim-autopairs").setup({})
 
 
@@ -119,14 +129,14 @@ vim.opt.termguicolors = true -- enbale 24-bit RGB color
 -- vim.cmd.colorscheme('gruvbox')
 
 -- Fluoromachine
--- require("fluoromachine").setup({
--- 	glow = false,
--- 	transparent = false,
--- 	theme = "fluoromachine",
--- })
--- vim.cmd.colorscheme("fluoromachine")
+require("fluoromachine").setup({
+	glow = false,
+	transparent = false,
+	theme = "fluoromachine",
+})
+vim.cmd.colorscheme("fluoromachine")
 
-vim.cmd.colorscheme("dath")
+--vim.cmd.colorscheme("dath")
 
 -- ==== format ====
 
@@ -138,7 +148,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
--- nvim-tree
+--  ==== nvim-tree =====
 
 -- disable netrw
 vim.g.loaded_netrw = 1
