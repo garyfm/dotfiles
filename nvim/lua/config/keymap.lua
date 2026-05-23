@@ -45,8 +45,16 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
--- Switch between header and source file
-vim.keymap.set("n", "<leader>h", ":ClangdSwitchSourceHeader<CR>")
+vim.keymap.set("n", "<leader>bn", "<cmd>bnext<CR>")
+vim.keymap.set("n", "<leader>bp", "<cmd>bprevious<CR>")
+vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>")
 
--- Close a buffer and open next one - Doesnt work
-vim.keymap.set("n", " <leader>c", ":b#|bd#<CR>")
+-- Close a buffer and open next one
+vim.keymap.set("n", "<leader>bc", function()
+  local current = vim.api.nvim_get_current_buf()
+  vim.cmd("bnext")
+  vim.cmd("bd " .. current)
+end, {
+  desc = "Close buffer",
+  silent = true,
+})

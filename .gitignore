@@ -1,2 +1,4 @@
 tmux/plugins/*
 nvim/plugin/*
+nvim/pack/*
+*.log
